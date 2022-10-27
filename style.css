@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --body-color: radial-gradient(#112, #000);
+  --list-color: #00aaff20;
+  --btn-text-color: #00aaff;
+  --border: .1rem solid #00aaff50;
+  --input-color: #00aaff20;
+  --input-text-color: #00aaff;
+  --input-border: .1rem solid #00aaff50;
+  --btn-color: #00aaff40;
+  --btn-text-color: #00aaff;
+  --pick-color-bg: #222;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--body-color);
+  font-family: sans-serif;
+  padding-inline: .5rem;
+}
+
+/* CONTAINER DAS TASKS */
+.add-task-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 3rem;
+  justify-content: center;
+  width: 100%;
+  max-width: 55rem;
+  min-height: 15rem;
+  border: var(--border);
+  border-radius: .5rem;
+  padding: 1rem;
+  margin-top: 5rem;
+}
+
+#inp-text {
+  width: 100%;
+  border-radius: .4rem;
+  padding: 1rem;
+  color: var(--input-text-color);
+  background: var(--input-color);
+  border: var(--input-border);
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+#inp-text::placeholder {
+  font-size: 1.5rem;
+  color: #00aaff80;
+}
+
+#inp-text:focus {
+  outline: none;
+}
+
+.add-task-container button {
+  width: 80%;
+  border-radius: .4rem;
+  padding: 1rem 0;
+  border: none;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--btn-text-color);
+  background: var(--btn-color);
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.add-task-container button:hover {
+  scale: .95;
+}
+
+/* ITEM DA LISTA */
+#list {
+  width: 100%;
+  max-width: 55rem;
+}
+
+.list-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  height: auto;
+  margin-top: 2rem;
+  font-size: 1.7rem;
+  list-style: none;
+  border-radius: .5rem;
+  color: var(--btn-text-color);
+  background: var(--list-color);
+}
+
+.list-item li {
+  margin-right: auto;
+  width: auto;
+}
+
+.list-item.item-checked {
+  opacity: .5;
+}
+
+.list-item.item-checked li {
+  text-decoration: line-through .3rem #fff;
+}
+
+/* ÍCONES DA LISTA */
+.list-item span {
+  color: #fff;
+  cursor: pointer;
+  opacity: .5;
+  border: .1rem solid #00aaff;
+  border-radius: .35rem;
+  padding: 1rem;
+  line-height: 100%;
+  transition: all .2s;
+  font-size: 1.5rem;
+}
+
+.list-item span:hover {
+  opacity: 1;
+}
+
+/* ESCOLHER A COR DO TEMA */
+.choose-theme {
+  background: var(--pick-color-bg);
+  position: fixed;
+  border-radius: .4rem;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 2rem;
+}
+
+.color {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--color);
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.color.active {
+  border: .3rem solid #fff;
+  scale: .9;
+}
