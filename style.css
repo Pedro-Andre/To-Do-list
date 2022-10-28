@@ -5,16 +5,17 @@
 }
 
 :root {
-  --body-color: radial-gradient(#112, #000);
-  --list-color: #00aaff20;
-  --btn-text-color: #00aaff;
+  --body-bg: #222 radial-gradient(#00aaff40 .15rem, #111 .15rem);
+  --list-color: #00aaff50;
   --border: .1rem solid #00aaff50;
   --input-color: #00aaff20;
   --input-text-color: #00aaff;
   --input-border: .1rem solid #00aaff50;
   --btn-color: #00aaff40;
-  --btn-text-color: #00aaff;
+  --btn-text-color: #fff;
   --pick-color-bg: #222;
+  --placeholder: #00aaff80;
+  --icon-border: .1rem solid #00aaff;
 }
 
 html {
@@ -27,7 +28,8 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: var(--body-color);
+  background: var(--body-bg);
+  background-size: 3rem 3rem;
   font-family: sans-serif;
   padding-inline: .5rem;
 }
@@ -61,7 +63,7 @@ body {
 
 #inp-text::placeholder {
   font-size: 1.5rem;
-  color: #00aaff80;
+  color: var(--placeholder);
 }
 
 #inp-text:focus {
@@ -124,12 +126,13 @@ body {
   color: #fff;
   cursor: pointer;
   opacity: .5;
-  border: .1rem solid #00aaff;
+  border: var(--icon-border);
   border-radius: .35rem;
   padding: 1rem;
   line-height: 100%;
   transition: all .2s;
   font-size: 1.5rem;
+  user-select: none;
 }
 
 .list-item span:hover {
@@ -141,7 +144,7 @@ body {
   background: var(--pick-color-bg);
   position: fixed;
   border-radius: .4rem;
-  left: 0;
+  left: .5rem;
   top: 50%;
   transform: translateY(-50%);
   padding: 1rem;
@@ -161,7 +164,12 @@ body {
   transition: all .3s;
 }
 
-.color.active {
-  border: .3rem solid #fff;
-  scale: .9;
+@media (max-width: 768px) {
+  .choose-theme {
+    flex-direction: row;
+    top: .5rem;
+    column-gap: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
