@@ -4,7 +4,7 @@ const addTask = document.getElementById("add-task");
 const list = document.getElementById("list");
 const input = document.getElementById("inp-text");
 
-addTask.addEventListener("click", () => {
+const addTaskFunc = function () {
   let task = document.createElement('div');
   task.classList.add("list-item")
 
@@ -37,8 +37,15 @@ addTask.addEventListener("click", () => {
   deleteTask.addEventListener("click", () => {
     deleteTask.parentElement.remove()
   })
-})
+}
 
+addTask.addEventListener("click", addTaskFunc)
+document.addEventListener("keydown", e => {
+  const k = e.key
+  if (k === "Enter") {
+    addTaskFunc()
+  }
+})
 
 const root = document.documentElement;
 const blueTheme = {
